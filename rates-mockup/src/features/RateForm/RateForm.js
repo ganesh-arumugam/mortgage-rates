@@ -79,7 +79,7 @@ export function RateForm() {
             type="number"
             required={true}
             min="1000"
-            step="100"
+            step="1"
             placeholder="$ 450,000"
             onChange={handleChange}
           />
@@ -101,7 +101,7 @@ export function RateForm() {
             required={true}
             min="300"
             max="850"
-            step="10"
+            step="1"
             placeholder="680"
             onChange={handleChange}
           />

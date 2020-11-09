@@ -3,3 +3,10 @@
   display: grid;
   align-items: center;
 }
+
+.RateTable-nodata {
+  color: darkgrey;
+  font-size: large;
+  display: flex;
+  justify-content: center;
+}
