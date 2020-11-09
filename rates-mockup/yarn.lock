@@ -1015,7 +1015,7 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@blueprintjs/core@^3.34.0", "@blueprintjs/core@^3.35.0":
+"@blueprintjs/core@^3.35.0":
   version "3.35.0"
   resolved "https://registry.yarnpkg.com/@blueprintjs/core/-/core-3.35.0.tgz#ed48ad7e6692f7dc32e28200a7984e029102ce3f"
   integrity sha512-2coEMDX1JJuHvDCt6wZSB6zntDlKvUmi4rqjLeGR+ZOo4TtFB92GSjycMtupka1PURM1A66oQZvnMiBIjuMW6Q==
@@ -1037,15 +1037,6 @@
   resolved "https://registry.yarnpkg.com/@blueprintjs/icons/-/icons-3.22.0.tgz#6a7c177e9aa96f0ed10bc93d88f7c6687db336ad"
   integrity sha512-clfdwRQlzqs2sDxjwQr4p10Z3bGNTnqpsLgN+4TN1ECf7plEEukhvQh6YK/Lfd5xDhEBEEZ/YQCawZbyAYjfXg==
   dependencies:
-    classnames "^2.2"
-    tslib "~1.13.0"
-
-"@blueprintjs/select@^3.14.3":
-  version "3.14.3"
-  resolved "https://registry.yarnpkg.com/@blueprintjs/select/-/select-3.14.3.tgz#ca26ba4161b0d2b261198e12abb3e97a02dbcc10"
-  integrity sha512-7psdf8SiqZUN1oUjtior1Y994+agKAO02o/7VYx93zfwW8dJkn5bTxGQnc0kDMXWWSFevsZMGfiQav78lZOgBw==
-  dependencies:
-    "@blueprintjs/core" "^3.34.0"
     classnames "^2.2"
     tslib "~1.13.0"
 
@@ -1361,7 +1352,7 @@
     schema-utils "^2.6.5"
     source-map "^0.7.3"
 
-"@reduxjs/toolkit@^1.1.0":
+"@reduxjs/toolkit@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@reduxjs/toolkit/-/toolkit-1.4.0.tgz#ee2e2384cc3d1d76780d844b9c2da3580d32710d"
   integrity sha512-hkxQwVx4BNVRsYdxjNF6cAseRmtrkpSlcgJRr3kLUcHPIAMZAmMJkXmHh/eUEGTMqPzsYpJLM7NN2w9fxQDuGw==
