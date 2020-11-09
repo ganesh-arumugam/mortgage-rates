@@ -2,6 +2,8 @@ import React from "react";
 import { Button, FormGroup, HTMLSelect, InputGroup } from "@blueprintjs/core";
 import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/icons/lib/css/blueprint-icons.css";
+import { fetchData } from "../../features/rates/ratesSlice";
+import { useDispatch } from "react-redux";
 import "./style.css";
 
 const property_types = ["SingleFamily", "Condo", "Townhouse", "MultiFamily"];
@@ -15,6 +17,8 @@ export function RateForm() {
 
   // Fetch related data
   const [url, setUrl] = React.useState();
+
+  const dispatch = useDispatch();
 
   // Handle Input event updates
   const handleChange = (event) => {
@@ -55,28 +59,16 @@ export function RateForm() {
   // Handle Form submission
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event);
     const getUrl = `https://ss6b2ke2ca.execute-api.us-east-1.amazonaws.com/Prod/quotes?loanSize=${loanSize}&creditScore=${creditScore}&propertyType=${propType}&occupancy=${occupancyType}`;
     setUrl(getUrl);
   };
 
-  // Side Effects logic
+  // Handle side effects logic
   React.useEffect(() => {
-    const getData = async () => {
-      const resp = await fetch(url, {
-        headers: {
-          Authorization: "OU-AUTH 68028256-2296-47a0-b107-25128e99f648",
-        },
-      });
-      const data = resp.ok ? await resp.json() : null;
-      console.log(data);
-    };
-
-    console.log("ULR ", !!url);
-    !!url && getData();
-
-    return () => console.log("clear data ");
-  }, [url]);
+    if (url) {
+      dispatch(fetchData(url));
+    }
+  }, [url, dispatch]);
 
   return (
     <>
