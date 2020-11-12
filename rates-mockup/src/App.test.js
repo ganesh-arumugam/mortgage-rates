@@ -1,15 +1,48 @@
 import React from "react";
 import { render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import store from "./app/store";
 import App from "./App";
+import { Elem } from "./App/constants";
 
-test("renders learn react link", () => {
-  const { getByText } = render(
+const fixture = async () => {
+  const {
+    getByText,
+    findByTestId,
+    queryByTestId,
+    getByPlaceholderText,
+  } = render(
     <Provider store={store}>
       <App />
     </Provider>
   );
 
-  expect(getByText(/learn/i)).toBeInTheDocument();
+  return { getByText, findByTestId, queryByTestId, getByPlaceholderText };
+};
+
+describe("Smoke Test for the application", () => {
+  it("renders mortgage mockup app", async () => {
+    const { getByText } = await fixture();
+
+    expect(getByText(/quote/i)).toBeInTheDocument();
+  });
+
+  it("check if the input fields appear with placeholders", async () => {
+    const { queryByTestId, getByPlaceholderText } = await fixture();
+
+    // Loan Size field
+    expect(queryByTestId(Elem.loanSize)).toBeInTheDocument();
+    expect(getByPlaceholderText(Elem.loanSize_pl)).toBeVisible();
+
+    // Credit Score
+    expect(queryByTestId(Elem.creditScore)).toBeInTheDocument();
+    expect(getByPlaceholderText(Elem.creditScore_pl)).toBeVisible();
+  });
+
+  it("displays placeholder message for rates", async () => {
+    const { getByText } = await fixture();
+
+    expect(getByText(Elem.table_pl)).toBeVisible();
+  });
 });

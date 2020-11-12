@@ -1,8 +1,8 @@
 import { Spinner, HTMLTable } from "@blueprintjs/core";
-import "@blueprintjs/core/lib/css/blueprint.css";
-import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import { useSelector, shallowEqual } from "react-redux";
 import { RateRow } from "../RateRow";
+import { Elem } from "../../app/constants";
+import "@blueprintjs/core/lib/css/blueprint.css";
 import "./style.css";
 
 export function RateTable() {
@@ -17,18 +17,14 @@ export function RateTable() {
   return (
     <>
       {ratesLoading && <Spinner />}
-      {ratesError && (
-        <div className="RateTable-error"> Oops. Something went wrong. </div>
-      )}
+      {ratesError && <div className="RateTable-error"> {Elem.table_err} </div>}
       {!ratesData ? (
-        <div className="RateTable-nodata">
-          Fill in the required fields to see your great rates!!!
-        </div>
+        <div className="RateTable-nodata">{Elem.table_pl}</div>
       ) : ratesData.length > 0 ? (
         <div className="RateTable-container">
           <HTMLTable striped={true}>
             <thead>
-              <tr>
+              <tr data-testid={Elem.table_header}>
                 <th>Lender</th>
                 <th>Product</th>
                 <th>Rate</th>
@@ -45,9 +41,7 @@ export function RateTable() {
           </HTMLTable>
         </div>
       ) : (
-        <div className="RateTable-nodata">
-          No results found. Try different criteria for getting rates.
-        </div>
+        <div className="RateTable-nodata">{Elem.no_results}</div>
       )}
     </>
   );

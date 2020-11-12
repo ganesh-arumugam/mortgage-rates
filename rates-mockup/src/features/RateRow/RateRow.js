@@ -8,7 +8,7 @@ export function RateRow(props) {
   const roundedValue = (value) => `$${Number(value).toFixed()}`;
 
   return (
-    <tr style={{ textAlign: "center" }}>
+    <tr key={row.lenderName + row.loanType} style={{ textAlign: "center" }}>
       <td>{row.lenderName}</td>
       <td>{row.loanType}</td>
       <td>{percentValue(row.interestRate)}</td>

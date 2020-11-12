@@ -1,15 +1,17 @@
 import React from "react";
 import { Button, FormGroup, HTMLSelect, InputGroup } from "@blueprintjs/core";
-import "@blueprintjs/core/lib/css/blueprint.css";
-import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import { fetchData } from "../../features/rates/ratesSlice";
 import { useDispatch } from "react-redux";
+import { Elem } from "../../app/constants";
+import "@blueprintjs/core/lib/css/blueprint.css";
 import "./style.css";
 
-const property_types = ["SingleFamily", "Condo", "Townhouse", "MultiFamily"];
-const occupancy_types = ["Primary", "Secondary", "Investment"];
-
 export function RateForm() {
+  // Form table constants
+  const property_types = ["SingleFamily", "Condo", "Townhouse", "MultiFamily"];
+  const occupancy_types = ["Primary", "Secondary", "Investment"];
+
+  //Form states
   const [loanSize, setLoanSize] = React.useState(0);
   const [creditScore, setCreditScore] = React.useState(0);
   const [propType, setPropType] = React.useState(property_types[0]);
@@ -75,13 +77,14 @@ export function RateForm() {
       <form className="RateForm-container" onSubmit={handleSubmit}>
         <FormGroup label="Loan Size" labelFor="loan-size" labelInfo="*">
           <InputGroup
-            id="loanSize"
+            id={Elem.loanSize}
             type="number"
             required={true}
             min="1000"
             step="1"
-            placeholder="$ 450,000"
+            placeholder={Elem.loanSize_pl}
             onChange={handleChange}
+            data-testid={Elem.loanSize}
           />
         </FormGroup>
 
@@ -104,6 +107,7 @@ export function RateForm() {
             step="1"
             placeholder="680"
             onChange={handleChange}
+            data-testid="creditScore"
           />
         </FormGroup>
 

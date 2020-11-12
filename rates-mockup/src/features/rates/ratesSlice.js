@@ -40,7 +40,6 @@ const getData = async (url) => {
     },
   });
   const data = resp.ok ? await resp.json() : null;
-  console.log(data);
   return data;
 };
 
