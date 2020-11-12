@@ -2,7 +2,6 @@ import React from "react";
 import { RateForm } from "./features/RateForm";
 import { Header } from "./features/Header";
 import { RateTable } from "./features/RateTable";
-import "./App.css";
 
 function App() {
   return (
