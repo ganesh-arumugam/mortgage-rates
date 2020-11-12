@@ -6,6 +6,7 @@ This project is used to provide sample mortgage quotes for the given criteria (l
 Provide the API key in the local storage under key 'dev-auth'. This serves as the authentication mechanism.
 Based on the input criteria the sample rates would be displayed. If none match the criteria, then no results would be displayed.
 Input validation and value changes are guarded and network request is made if at least one criteria change.
+Responsive stylings are used to support all types of viewport spaces.
 
 Future enchancements would be caching the server responses for previously searched criteria.
 
@@ -15,6 +16,7 @@ Future enchancements would be caching the server responses for previously search
 - Go to application folder `cd rates-mockup`
 - Install dependencies with `yarn install`
 - Start the project from terminal with `yarn start`
+- Provide the API key in the local storage under key 'dev-auth'.
 
 ### Compatibility
 
