@@ -22,8 +22,8 @@ export function RateTable() {
   return (
     <>
       {placeholder && <div className="RateTable-nodata">{Elem.table_pl}</div>}
-      {ratesLoading && <Spinner />}
-      {showError && <div className="RateTable-error"> {Elem.table_err} </div>}
+      {ratesLoading && <Spinner/>}
+      {showError && <div className="RateTable-error"> {`${Elem.table_err}More information - ${ratesError}`} </div>}
       {noResults && <div className="RateTable-nodata">{Elem.no_results}</div>}
 
       {hasResults && (
