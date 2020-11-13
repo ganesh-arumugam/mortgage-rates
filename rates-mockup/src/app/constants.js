@@ -13,7 +13,15 @@ const table = {
   table_header: "tableHeader",
 };
 
+const app = {
+  noKey: "noKey",
+  noKey_pl:
+    "Not Authenticated. Kindly provide your API key like 'OU-AUTH 68028256-2296'.",
+  key: "dev-auth",
+};
+
 export const Elem = {
+  ...app,
   ...form,
   ...table,
 };

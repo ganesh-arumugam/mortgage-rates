@@ -6,7 +6,9 @@ import store from "./app/store";
 import App from "./App";
 import { Elem } from "./App/constants";
 
-const fixture = async () => {
+const fixture = async (hasKey = true) => {
+  if (hasKey) localStorage.setItem(Elem.key, "someKeyAuth");
+
   const {
     getByText,
     findByTestId,
@@ -22,6 +24,12 @@ const fixture = async () => {
 };
 
 describe("Smoke Test for the application", () => {
+  it("shows authentication failure if no key is set", async () => {
+    const { queryByTestId } = await fixture(false);
+
+    expect(queryByTestId(Elem.noKey)).toBeInTheDocument();
+  });
+
   it("renders mortgage mockup app", async () => {
     const { getByText } = await fixture();
 

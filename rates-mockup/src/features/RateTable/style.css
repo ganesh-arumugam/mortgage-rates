@@ -10,3 +10,10 @@
   display: flex;
   justify-content: center;
 }
+
+.RateTable-error {
+  color: red;
+  font-style: italic;
+  display: flex;
+  justify-content: center;
+}

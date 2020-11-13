@@ -6,10 +6,11 @@ import { Elem } from "../../app/constants";
 import "@blueprintjs/core/lib/css/blueprint.css";
 import "./style.css";
 
-export function RateForm() {
+export function RateForm(props) {
   // Form table constants
   const property_types = ["SingleFamily", "Condo", "Townhouse", "MultiFamily"];
   const occupancy_types = ["Primary", "Secondary", "Investment"];
+  const { apiKey } = props;
 
   //Form states
   const [loanSize, setLoanSize] = React.useState(0);
@@ -68,9 +69,9 @@ export function RateForm() {
   // Handle side effects logic
   React.useEffect(() => {
     if (url) {
-      dispatch(fetchData(url));
+      dispatch(fetchData(url, apiKey));
     }
-  }, [url, dispatch]);
+  }, [url, apiKey, dispatch]);
 
   return (
     <>

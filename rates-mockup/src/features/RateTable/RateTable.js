@@ -14,13 +14,19 @@ export function RateTable() {
     };
   }, shallowEqual);
 
+  const showError = !!ratesError;
+  const hasResults = !showError && ratesData && ratesData.length > 0;
+  const noResults = !showError && ratesData;
+  const placeholder = !showError && !ratesData;
+
   return (
     <>
+      {placeholder && <div className="RateTable-nodata">{Elem.table_pl}</div>}
       {ratesLoading && <Spinner />}
-      {ratesError && <div className="RateTable-error"> {Elem.table_err} </div>}
-      {!ratesData ? (
-        <div className="RateTable-nodata">{Elem.table_pl}</div>
-      ) : ratesData.length > 0 ? (
+      {showError && <div className="RateTable-error"> {Elem.table_err} </div>}
+      {noResults && <div className="RateTable-nodata">{Elem.no_results}</div>}
+
+      {hasResults && (
         <div className="RateTable-container">
           <HTMLTable striped={true}>
             <thead>
@@ -40,8 +46,6 @@ export function RateTable() {
             </tbody>
           </HTMLTable>
         </div>
-      ) : (
-        <div className="RateTable-nodata">{Elem.no_results}</div>
       )}
     </>
   );

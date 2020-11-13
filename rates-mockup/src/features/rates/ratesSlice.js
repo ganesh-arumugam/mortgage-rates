@@ -33,23 +33,24 @@ export const {
 export default ratesSlice.reducer;
 
 // Async fetch request for data
-const getData = async (url) => {
+const getData = async (url, apiKey) => {
   const resp = await fetch(url, {
     headers: {
-      Authorization: "OU-AUTH 68028256-2296-47a0-b107-25128e99f648",
+      Authorization: apiKey,
     },
   });
-  const data = resp.ok ? await resp.json() : null;
-  return data;
+  const data = await resp.json();
+  return { ok: resp.ok, data };
 };
 
 // Async thunk api for handling side effects
-export const fetchData = (url) => async (dispatch) => {
+export const fetchData = (url, apiKey) => async (dispatch) => {
   try {
     dispatch(getRatesStart());
-    const data = await getData(url);
+    const { ok, data } = await getData(url, apiKey);
+    if (!ok) throw new Error(data.errors[0]);
     dispatch(getRatesSuccess(data));
   } catch (err) {
-    dispatch(getRatesFailure(err));
+    dispatch(getRatesFailure(err.message));
   }
 };
