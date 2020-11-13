@@ -1,12 +1,14 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
-## Mortgage Quotes
+## Mortgage Quotes Overview
 
 This project is used to provide sample mortgage quotes for the given criteria (loan size, credit score, occupancy, property type).
 Provide the API key in the local storage under key 'dev-auth'. This serves as the authentication mechanism.
 Based on the input criteria the sample rates would be displayed. If none match the criteria, then no results would be displayed.
 Input validation and value changes are guarded and network request is made if at least one criteria change.
 Responsive stylings are used to support all types of viewport spaces.
+Project follows best practices as suggested by the React community.
+Blueprint components and Mock service response libraries are used in the project.
 
 Future enchancements would be caching the server responses for previously searched criteria.
 
@@ -26,9 +28,10 @@ Project works on the latest chrome browser and with lastest React 17 version.
 
 - Input criteria filled up and produces a sample rates table.
 - Input criteria not filled up, provide user validation.
-- Same criteria used to fetch rates, stop multiple rate fetches.
+- If same criteria used to fetch rates, stop multiple rate fetches.
 - If no rates are available, provide a gracious error to user.
 - If `dev-auth` key is changed after app load, user needs to refresh app.
+- App handles web service errors.
 
 ## Available Scripts
 
