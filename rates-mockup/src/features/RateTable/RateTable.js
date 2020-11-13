@@ -16,7 +16,7 @@ export function RateTable() {
 
   const showError = !!ratesError;
   const hasResults = !showError && ratesData && ratesData.length > 0;
-  const noResults = !showError && ratesData;
+  const noResults = !showError && ratesData && ratesData.length === 0;
   const placeholder = !showError && !ratesData;
 
   return (

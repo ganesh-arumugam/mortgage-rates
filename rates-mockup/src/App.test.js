@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import store from "./app/store";
@@ -51,6 +51,17 @@ describe("Smoke Test for the application", () => {
   it("displays placeholder message for rates", async () => {
     const { getByText } = await fixture();
 
+    expect(getByText(Elem.table_pl)).toBeVisible();
+  });
+});
+
+describe("Validation Test for the application", () => {
+  it("form cannot be submitted without entering input fields", async () => {
+    const { queryByTestId, getByText } = await fixture(false);
+
+    fireEvent.click(queryByTestId(Elem.submit));
+
+    // Table placeholder still exists
     expect(getByText(Elem.table_pl)).toBeVisible();
   });
 });

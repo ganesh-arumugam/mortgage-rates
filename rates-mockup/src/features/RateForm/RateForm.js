@@ -81,7 +81,7 @@ export function RateForm(props) {
             id={Elem.loanSize}
             type="number"
             required={true}
-            min="1000"
+            min="1"
             step="1"
             placeholder={Elem.loanSize_pl}
             onChange={handleChange}
@@ -122,7 +122,12 @@ export function RateForm(props) {
         </FormGroup>
 
         <FormGroup labelFor="get-quote" fill={true}>
-          <Button type="submit" text="Quote Rates" fill={true} />
+          <Button
+            type="submit"
+            text="Quote Rates"
+            fill={true}
+            data-testid={Elem.submit}
+          />
         </FormGroup>
       </form>
     </>

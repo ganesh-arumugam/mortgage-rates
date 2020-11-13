@@ -4,6 +4,7 @@ const form = {
   loanSize_pl: "$ 450,000",
   creditScore: "creditScore",
   creditScore_pl: "680",
+  submit: "submit",
 };
 
 const table = {
