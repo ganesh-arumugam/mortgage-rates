@@ -91,10 +91,11 @@ export function RateForm(props) {
 
         <FormGroup label="Property Type" labelFor="property-type" labelInfo="*">
           <HTMLSelect
-            id="propType"
+            id={Elem.propType}
             options={property_types}
             fill={true}
             onChange={handleChange}
+            data-testid={Elem.propType}
           />
         </FormGroup>
 

@@ -9,11 +9,7 @@ import store from "./app/store";
 import App from "./App";
 
 const fixture = async (hasKey = true) => {
-  if (hasKey)
-    localStorage.setItem(
-      Elem.key,
-      "OU-AUTH 68028256-2296-47a0-b107-25128e99f648"
-    );
+  if (hasKey) localStorage.setItem(Elem.key, "dummy");
 
   const {
     getByText,
@@ -74,6 +70,15 @@ describe("Validation Test for the application", () => {
 
     fireEvent.click(queryByTestId(Elem.submit));
     expect(getByPlaceholderText(Elem.loanSize_pl)).toBeVisible();
+  });
+
+  it("displays selected value for property type", async () => {
+    const { queryByTestId } = await fixture();
+    const userValue = "Condo";
+    fireEvent.click(queryByTestId(Elem.propType));
+    const selection = await screen.findByText(userValue);
+    fireEvent.click(selection);
+    expect(selection.value).toEqual(userValue);
   });
 });
 
