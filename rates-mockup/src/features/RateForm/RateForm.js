@@ -121,7 +121,7 @@ export function RateForm(props) {
           />
         </FormGroup>
 
-        <FormGroup labelFor="get-quote" fill={true}>
+        <FormGroup labelFor="get-quote" fill={true} style={{ gridColumn: "2" }}>
           <Button
             type="submit"
             text="Quote Rates"

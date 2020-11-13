@@ -17,7 +17,7 @@ export function RateTable() {
   const showError = !!ratesError;
   const hasResults = !showError && ratesData && ratesData.length > 0;
   const noResults = !showError && ratesData && ratesData.length === 0;
-  const placeholder = !showError && !ratesData;
+  const placeholder = !showError && !ratesData && !ratesLoading;
 
   return (
     <>
@@ -41,7 +41,7 @@ export function RateTable() {
             </thead>
             <tbody>
               {ratesData.map((rate) => (
-                <RateRow row={rate} />
+                <RateRow key={rate.lenderName + rate.loanType} row={rate} />
               ))}
             </tbody>
           </HTMLTable>
