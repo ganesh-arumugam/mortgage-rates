@@ -28,6 +28,7 @@ Project works on the latest chrome browser and with lastest React 17 version.
 - Input criteria not filled up, provide user validation.
 - Same criteria used to fetch rates, stop multiple rate fetches.
 - If no rates are available, provide a gracious error to user.
+- If `dev-auth` key is changed after app load, user needs to refresh app.
 
 ## Available Scripts
 
